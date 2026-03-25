@@ -10,6 +10,8 @@ The backend asks OpenAI for JSON in this format:
 
 If OpenAI is unavailable (or quota is exceeded), the app automatically returns built-in fallback jokes in the same format.
 
+![1](./public/1.png)
+
 ## Prerequisites
 
 - Node.js 18+
