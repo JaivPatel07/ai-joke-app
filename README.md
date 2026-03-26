@@ -22,7 +22,7 @@ If OpenAI is unavailable (or quota is exceeded), the app automatically returns b
 1. Open a terminal in the project folder:
 
 ```powershell
-cd c:\Users\nishi\Desktop\jaiv\github\ai-joke-app
+cd \ai-joke-app
 ```
 
 2. Install dependencies:
