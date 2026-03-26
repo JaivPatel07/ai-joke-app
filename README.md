@@ -1,67 +1,90 @@
 # AI Joke App
 
-A simple Express + frontend app that generates one short funny joke at a time.
+A modern, full-stack web application that serves fresh, AI-generated jokes using OpenAI's GPT models. The app features a clean user interface and a robust backend with built-in fallback mechanisms to ensure users always get a laugh, even when the API is unreachable or the quota is exceeded.
 
-The backend asks OpenAI for JSON in this format:
+## Preview
 
-```json
-{"joke":"..."}
+![App Screenshot](./public/1.png)
+
+## Features
+
+- **AI-Powered Humor**: Leverages OpenAI's `gpt-4o-mini` for high-quality, natural-sounding jokes.
+- **Structured Data**: Uses OpenAI's JSON Schema response format for guaranteed payload consistency.
+- **Robust Fallbacks**: Automatically serves a curated list of fallback jokes if the API is unavailable or the key is missing.
+- **Safe Rendering**: Implements HTML escaping on the frontend to protect against XSS when rendering dynamic content.
+- **Responsive UI**: Interactive "Tell me a joke" button with active loading states and status feedback.
+
+## Tech Stack
+
+**Frontend:**
+- HTML5 & CSS3
+- Vanilla JavaScript (ES6+)
+
+**Backend:**
+- Node.js & Express
+- `node-fetch` for API communication
+- `dotenv` for environment management
+- `cors` for cross-origin resource sharing
+
+## Project Structure
+
+```text
+ai-joke-app/
+├── public/
+│   ├── index.html   # Frontend structure
+│   ├── index.js     # Frontend logic & API calls
+│   └── 1.png        # App screenshot
+├── server.js        # Express server & OpenAI integration
+├── .env             # Environment variables (ignored by git)
+├── package.json     # Project dependencies
+└── README.md        # Project documentation
 ```
 
-If OpenAI is unavailable (or quota is exceeded), the app automatically returns built-in fallback jokes in the same format.
+## Getting Started
 
-![1](./public/1.png)
+### Prerequisites
 
-## Prerequisites
+*   Node.js 18 or higher
+*   An OpenAI API Key (Optional, fallback jokes work without it)
 
-- Node.js 18+
-- An OpenAI API key (optional, fallback jokes work without it)
+### Installation
 
-## Setup
+1.  **Navigate to the project directory:**
+    ```powershell
+    cd ai-joke-app
+    ```
 
-1. Open a terminal in the project folder:
+2.  **Install dependencies:**
+    ```powershell
+    npm install
+    ```
 
-```powershell
-cd \ai-joke-app
-```
+3.  **Configure Environment Variables:**
+    Create a `.env` file in the root directory and add your configuration:
+    ```env
+    OPENAI_API_KEY=your_actual_key_here
+    PORT=3000
+    ```
 
-2. Install dependencies:
+### Running the App
 
-```powershell
-npm install
-```
-
-3. Add environment variables in `.env`:
-
-```env
-OPENAI_API_KEY=your_api_key_here
-PORT=3000
-```
-
-## Run
-
-```powershell
-npm start
-```
-
-Then open `http://localhost:3000` in your browser.
-
-If you are running commands from the parent folder, use:
-
-```powershell
-npm --prefix "c:\Users\nishi\Desktop\jaiv\github\ai-joke-app" start
-```
+1.  **Start the server:**
+    ```powershell
+    npm start
+    ```
+2.  **View the app:**
+    Open your browser and navigate to `http://localhost:3000`.
 
 ## API
 
-- Endpoint: `POST /joke`
-- Request body: `{}`
-- Success response:
+### `POST /joke`
+Fetches a joke from the AI model or returns a fallback.
 
+**Request Body:** ` {} `
+
+**Response Schema:**
 ```json
-{"joke":"Your generated joke here"}
+{
+  "joke": "string"
+}
 ```
-
-## Notes
-
-- If `OPENAI_API_KEY` is missing or the upstream API fails, the server returns built-in fallback jokes.
