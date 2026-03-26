@@ -1,23 +1,23 @@
 {
   "name": "ai-joke-app",
   "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
-  "type": "module",
-  "scripts": {
-    "start": "node server.js"
+  "description": "A simple Express + frontend app that generates one short funny joke at a time.",
+  "keywords": [],
+  "homepage": "https://github.com/JaivPatel07/ai-joke-app#readme",
+  "bugs": {
+    "url": "https://github.com/JaivPatel07/ai-joke-app/issues"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/JaivPatel07/ai-joke-app.git"
   },
-  "keywords": [],
-  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/JaivPatel07/ai-joke-app/issues"
+  "author": "",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
   },
-  "homepage": "https://github.com/JaivPatel07/ai-joke-app#readme",
   "dependencies": {
     "cors": "^2.8.6",
     "dotenv": "^17.3.1",
